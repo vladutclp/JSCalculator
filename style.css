@@ -12,18 +12,20 @@
 .display{
 	border: 1px solid black;
 	padding: 10px;
-	margin: 15px;
+	margin: 20px 35px 20px 35px;
+
 	height: 150px;
 	border-radius: 20px;
 }
 
-.result{
-	width: 50%;
-  	margin: 0 auto;
-  	font-size: 30px;
+#result{
+	position: relative;
+  	font-size: 50px;
   	font-weight: bold;
   	padding-top: 100px;
   	float: right;
+  	bottom: 70px;
+  	max-width: 400px;
 }
 
 .button_top{

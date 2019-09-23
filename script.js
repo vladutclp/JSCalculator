@@ -38,3 +38,17 @@ function operate(operator, a, b){
 	}
 
 }
+
+const clear = document.getElementById("clear");
+const button0 = document.getElementById("0");
+const display = document.getElementById("result");
+
+
+
+button0.addEventListener("click", function(){
+	display.textContent += "0";
+})
+
+clear.addEventListener("click", function(){
+	display.textContent = "";
+})
