@@ -39,8 +39,8 @@ function operate(operator, a, b){
 
 }
 
-var firstValue = "", secondValue = "", operation = "";
-let operationPressed = 0;
+
+
 
 const button0 = document.getElementById("0");
 const button1 = document.getElementById("1");
@@ -63,411 +63,119 @@ const del = document.getElementById("DEL");
 const punct = document.getElementById(".");
 
 const display = document.getElementById("result");
-
-/*
-
-button0.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 0;
-		display.textContent = firstValue;
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 0;
-			display.textContent = secondValue;
-		}
-})
-
-button1.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 1;
-		display.textContent = firstValue;
-		
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 1;
-			display.textContent = secondValue;
-		}
-		
-})
-
-
-button2.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 2;
-		display.textContent = firstValue;
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 2;
-			display.textContent = secondValue;
-		}
-		
-})
-
-button3.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 3;
-		display.textContent = firstValue;
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 3;
-			display.textContent = secondValue;
-		}
-		
-})
-
-
-button4.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 4;
-		display.textContent = firstValue;
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 4;
-			display.textContent = secondValue;
-		}
-		
-})
-
-
-button5.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 5;
-		display.textContent = firstValue;
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 5;
-			display.textContent = secondValue;
-		}
-		
-})
-
-
-button6.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 6;
-		display.textContent = firstValue;
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 6;
-			display.textContent = secondValue;
-		}
-		
-})
-
-
-button7.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 7;
-		display.textContent = firstValue;
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 7;
-			display.textContent = secondValue;
-		}
-		
-})
-
-
-button8.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 8;
-		display.textContent = firstValue;
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 8;
-			display.textContent = secondValue;
-		}
-		
-})
-
-
-button9.addEventListener("click", function(){
-	if(operationPressed == 0 && secondValue == ""){
-		firstValue += 9;
-		display.textContent = firstValue;
-	}
-	else
-		if(operationPressed == 1 && firstValue != ""){
-			secondValue += 9;
-			display.textContent = secondValue;
-		}
-		
-})
-
-
-plus.addEventListener("click", function(){
-	operation += "+";
-	operationPressed = 1;
-	display.textContent = operation;
-
-		
-})
-
-
-minus.addEventListener("click", function(){
-	operation += "-";
-	operationPressed = 1;
-	display.textContent = operation;
-		
-})
-
-mult.addEventListener("click", function(){
-	operation += "*";
-	operationPressed = 1;
-	display.textContent = operation;
-
-		
-})
-
-div.addEventListener("click", function(){
-	operation += "/";
-	operationPressed = 1;
-	display.textContent = operation;
-
-		
-})
-
-
-equal.addEventListener("click", function(){
-	console.log("First value: " + firstValue + "\nSecond value: " + secondValue);
-	operationPressed = 0;
-	display.textContent = operate(operation, parseInt(firstValue), parseInt(secondValue));
-	firstValue = "";
-	secondValue = "";
-	operation = "";	
-})
-clear.addEventListener("click", resetCalculator);
-*/
+const displayTop = document.getElementById("resultString");
 function resetCalculator(){
 	display.textContent = "";
 	firstValue = "";
 	secondValue = "";
 	operation = "";
 }
+displayTop.textContent = "";
+
+function initButtons(){
+	plus.disabled = true;
+	minus.disabled = true;
+	div.disabled = true;
+	mult.disabled = true;
+	equal.disabled = true;
+}
+
+function buttonEnable(){
+	plus.disabled = false;
+	minus.disabled = false;
+	div.disabled = false;
+	mult.disabled = false;
+	equal.disabled = false;
+}
+
+//initButtons();
 
 
+button0.addEventListener("click", numberPressed);
+button1.addEventListener("click", numberPressed);
+button2.addEventListener("click", numberPressed);
+button3.addEventListener("click", numberPressed);
+button4.addEventListener("click", numberPressed);
+button5.addEventListener("click", numberPressed);
+button6.addEventListener("click", numberPressed);
+button7.addEventListener("click", numberPressed);
+button8.addEventListener("click", numberPressed);
+button9.addEventListener("click", numberPressed);
+equal.addEventListener("click", equalPress);
+clear.addEventListener("click", clearScreen);
+plus.addEventListener("click", operationPressed);
+minus.addEventListener("click", operationPressed);
+mult.addEventListener("click", operationPressed);
+div.addEventListener("click", operationPressed);
 
-
-
-
-
-button0.addEventListener("click", eventHandler);
-button1.addEventListener("click", eventHandler);
-button2.addEventListener("click", eventHandler);
-button3.addEventListener("click", eventHandler);
-button4.addEventListener("click", eventHandler);
-button5.addEventListener("click", eventHandler);
-button6.addEventListener("click", eventHandler);
-button7.addEventListener("click", eventHandler);
-button8.addEventListener("click", eventHandler);
-button9.addEventListener("click", eventHandler);
-equal.addEventListener("click", eventHandler);
-clear.addEventListener("click", eventHandler);
-plus.addEventListener("click", eventHandler);
-minus.addEventListener("click", eventHandler);
-mult.addEventListener("click", eventHandler);
-div.addEventListener("click", eventHandler);
-//del = document.getElementById("DEL");
+del.addEventListener("click", deleteCharacter);
 //punct = document.getElementById(".");
 
-function eventHandler(){
-	let id = this.id;
 
-	switch(id){
-		case "0":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 0;
-				display.textContent = firstValue;
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 0;
-					display.textContent = secondValue;
-				}
-			break;
+let actualValue = 0, storedValue = 0, operation = null, equalPressed = 0;
 
-		case "1":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 1;
-				display.textContent = firstValue;
-			
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 1;
-					display.textContent = secondValue;
-				}
-			
-			break;
+function numberPressed(){
 
-		case "2":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 2;
-				display.textContent = firstValue;
-			
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 2;
-					display.textContent = secondValue;
-				}
-			
-			break;
+	if(equalPressed){
+			actualValue = 0;
+			storedValue = 0;
+			equalPressed = false;
+		}
+	number = parseInt(this.id);
+	
+	
+	actualValue = (actualValue * 10) + number;
+	console.log(actualValue);
+	display.textContent = actualValue;
 
-		case "3":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 3;
-				display.textContent = firstValue;
-			
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 3;
-					display.textContent = secondValue;
-				}
-			
-			break;
 
-		case "4":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 4;
-				display.textContent = firstValue;
-			
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 4;
-					display.textContent = secondValue;
-				}
-			
-			break;
-
-		case "5":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 5;
-				display.textContent = firstValue;
-			
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 5;
-					display.textContent = secondValue;
-				}
-			
-			break;
-
-		case "6":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 6;
-				display.textContent = firstValue;
-			
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 6;
-					display.textContent = secondValue;
-				}
-		
-			break;
-
-		case "7":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 7;
-				display.textContent = firstValue;
-			
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 7;
-					display.textContent = secondValue;
-				}
-		
-			break;
-
-		case "8":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 8;
-				display.textContent = firstValue;
-			
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 8;
-					display.textContent = secondValue;
-				}
-		
-			break;
-
-		case "9":
-			if(operationPressed == 0 && secondValue == ""){
-				firstValue += 9;
-				display.textContent = firstValue;
-			
-			}
-			else
-				if(operationPressed == 1 && firstValue != ""){
-					secondValue += 9;
-					display.textContent = secondValue;
-				}
-		
-			break;
-
-		case "+":
-			operation += "+";
-			operationPressed = 1;
-			display.textContent = operation;
-				
-			break;
-
-		case "-":
-			operation += "-";
-			operationPressed = 1;
-			display.textContent = operation;
-		
-			break;
-
-		case "*":
-			operation += "*";
-			operationPressed = 1;
-			display.textContent = operation;
-		
-			break;
-
-		case "/":
-			operation += "/";
-			operationPressed = 1;
-			display.textContent = operation;
-		
-			break;
-
-		case "=":
-			console.log("First value: " + firstValue + "\nSecond value: " + secondValue);
-			operationPressed = 0;
-			display.textContent = operate(operation, parseInt(firstValue), parseInt(secondValue)).toFixed(2);
-			firstValue = "";
-			secondValue = "";
-			operation = "";	
-
-			break;
-
-		case "clear":
-			resetCalculator();
-
-			break;
-
-		default:
-			break;
-
-	}
+	equalPressed = false;
 
 }
 
+
+function operationPressed(){
+
+	if(operation != null){
+			actualValue = operate(operation, storedValue, actualValue);
+			display.textContent = parseFloat(actualValue.toFixed(2));
+	}
+
+	operation = this.id;
+	storedValue = actualValue;
+	actualValue = 0;
+	equalPressed = false;
+
+}
+
+function equalPress(){
+
+	
+
+
+	actualValue = operate(operation, storedValue, actualValue);
+	
+	display.textContent = parseFloat(actualValue.toFixed(2));
+	
+	operation = null;
+	storedValue = actualValue;
+	equalPressed = true;
+}
+
+function clearScreen(){
+	display.textContent = "";
+	actualValue = 0;
+	storedValue = 0;
+	operation = null;
+	equalPressed = false;
+}
+
+function deleteCharacter(){
+	display.textContent = display.textContent.substring(0, display.textContent.length - 1);
+	actualValue = parseInt(actualValue/10);
+	console.log(display.textContent);
+	console.log("actual value = " + actualValue);
+}
+
+let a = ".3";
+console.log(parseFloat(a));

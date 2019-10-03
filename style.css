@@ -18,6 +18,16 @@
 	border-radius: 20px;
 }
 
+#resultString{
+	position: relative;
+  	font-size: 25px;
+  	font-weight: bold;
+  	padding-top: 100px;
+  	float: right;
+  	bottom: 100px;
+  	max-width: 400px;
+}
+
 #result{
 	position: relative;
   	font-size: 50px;
